@@ -1,0 +1,11 @@
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\bin\Debug\Lorena.exe.config
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\bin\Debug\Lorena.exe
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\bin\Debug\Lorena.pdb
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\bin\Debug\System.Data.SQLite.dll
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\bin\Debug\System.Data.SQLite.xml
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\obj\x86\Debug\Lorena.Form1.resources
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\obj\x86\Debug\Lorena.Properties.Resources.resources
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\obj\x86\Debug\Lorena.csproj.GenerateResource.Cache
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\obj\x86\Debug\Lorena.exe
+C:\Users\Lenusik\Desktop\0\Lorena\Lorena\obj\x86\Debug\Lorena.pdb
