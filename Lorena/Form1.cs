@@ -84,40 +84,24 @@ namespace Lorena
 
       if (float.TryParse( price.Text, out val ))
       {
-        float Discount = currentNode.salon.discount;
-        float DiscountParent = 0.0F;
-        
-        if (currentNode.salon.depend == 1)
-        {
-          long pid = currentNode.salon.id;
-
-          do
-          {
-            List<Salon> res = DB.Get.execReaderSalon( "SELECT * FROM salon WHERE id = " + pid );
-            pid = res[0].pid;
-            DiscountParent += res[0].discount;
-          }
-          while (pid != 0);
-
-          DiscountParent -= currentNode.salon.discount;
-        }
-
-        float S = val - (val * ((Discount + DiscountParent) / 100.0F));
+        float S = currentNode.salon.getSum( val ) /*val - (val * ((Discount + DiscountParent) / 100.0F))*/;
 
         int rowNum = dataGridView1.Rows.Add();
-        dataGridView1.Rows[ rowNum ].Cells[0].Value = currentNode.salon.name;
-        dataGridView1.Rows[ rowNum ].Cells[1].Value = val.ToString();
-        dataGridView1.Rows[ rowNum ].Cells[2].Value = S.ToString();
+        dataGridView1.Rows[ rowNum ].Cells[ 0 ].Value = currentNode.salon.name;
+        dataGridView1.Rows[ rowNum ].Cells[ 1 ].Value = val.ToString();
+        dataGridView1.Rows[ rowNum ].Cells[ 2 ].Value = S.ToString();
 
-        DB.Get.execNonQuery( 
-          string.Format( 
-            "INSERT INTO results (sid, price, result) VALUES ('{0}', {1}, {2})", 
+        DB.Get.execNonQuery(
+          string.Format(
+            "INSERT INTO results (sid, price, result) VALUES ('{0}', {1}, {2})",
             currentNode.salon.id,
             val.ToString().Replace( ",", "." ),
             S.ToString().Replace( ",", "." )
-          ) 
+          )
         );
       }
+      else
+        MessageBox.Show( "Неверные данные", "Ошибка" );
     }
   }
 }

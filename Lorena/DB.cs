@@ -17,6 +17,28 @@ namespace Lorena
     public float discount { get; set; }
     public short depend { get; set; }
     public string description { get; set; }
+
+    public float getSum( float price )
+    {
+      float DiscountParent = 0.0F;
+
+      if (this.depend == 1)
+      {
+        long pid = this.id;
+
+        do
+        {
+          List<Salon> res = DB.Get.execReaderSalon( "SELECT * FROM salon WHERE id = " + pid );
+          pid = res[0].pid;
+          DiscountParent += res[0].discount;
+        }
+        while (pid != 0);
+
+        DiscountParent -= this.discount;
+      }
+
+      return price - (price * ((this.discount + DiscountParent) / 100.0F));
+    }
   }
 
   public class Results
